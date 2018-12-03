@@ -17,10 +17,18 @@ import java.util.TreeSet;
 public class MapaClassico extends Mapa {
     
     private ArrayList<Jogador> players = new ArrayList<>();
+    private static MapaClassico uniqueInstance;
     
-    public MapaClassico() {
+    private MapaClassico() {
         super();
         this.montarMapa();
+    }
+    
+    public static synchronized MapaClassico getInstance() {
+        if (uniqueInstance == null)
+            uniqueInstance = new MapaClassico();
+ 
+        return uniqueInstance;
     }
 
     @Override
@@ -262,6 +270,7 @@ public class MapaClassico extends Mapa {
         System.out.println(exercitos);
         for(Exercito temp: exercitos) {
             Jogador n = new Jogador("Jogador ", temp.getCOR(), this.estados.size()/qtdPlayers,1);
+            this.players.add(n);
         }
         
             if (qtdPlayers > 6 || qtdPlayers == 1){
