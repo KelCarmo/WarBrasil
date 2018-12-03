@@ -19,7 +19,7 @@ public class WarBrasil {
     public static void main(String[] args) {
         // TODO code application logic here
         MapaClassico novo = MapaClassico.getInstance();
-        novo.sortExercitos(2);  
+        novo.sortExercitos(3);  
         
         
         System.out.println(novo);

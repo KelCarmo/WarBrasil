@@ -14,8 +14,8 @@ import java.util.ArrayList;
 public abstract class Mapa {
     protected ArrayList<Estado> estados ;
     protected final String nome_regiao [] = new String[5];
-    protected final String cores [] = new String[4];
-    protected final int qtdPaises;
+    protected final String cores [] = new String[6];
+    protected final int qtdEstados;
     
     public Mapa() {
         this.nome_regiao[0]= "NORTE";
@@ -27,7 +27,9 @@ public abstract class Mapa {
         this.cores[1] = "AZUL";
         this.cores[2] = "VERDE";
         this.cores[3] = "BRANCO";
-        this.qtdPaises = 24;
+        this.cores[4] = "AMARELO";
+        this.cores[5] = "PRETO";
+        this.qtdEstados = 24;
         this.estados = new ArrayList<>();
     }
     

@@ -86,7 +86,7 @@ public class MapaClassico extends Mapa {
         
         // PARÁ
         PA.addVizinho(AP);
-        PA.addVizinho(RO);
+        PA.addVizinho(RR);
         PA.addVizinho(AM);
         PA.addVizinho(MT);
         PA.addVizinho(GO);
@@ -94,13 +94,8 @@ public class MapaClassico extends Mapa {
         this.estados.add(PA);
         
         // AMAPÁ
-        PA.addVizinho(AP);
-        PA.addVizinho(RO);
-        PA.addVizinho(AM);
-        PA.addVizinho(MT);
-        PA.addVizinho(GO);
-        PA.addVizinho(MA);
-        this.estados.add(PA);
+        AP.addVizinho(PA);
+        this.estados.add(AP);
         
         // RONDONIA
         RO.addVizinho(MT);
@@ -290,6 +285,7 @@ public class MapaClassico extends Mapa {
             TreeSet<Integer> nums = sortNum(this.estados.size());
             int x = this.estados.size()/qtdPlayers;
             int y =this.estados.size()%qtdPlayers;
+            System.err.println(y);
             for (int j = 0; j< x+y; j++) {
                 TreeSet<Integer> players = sortNum(qtdPlayers);
                 for(int i = 0; i<qtdPlayers; i++) {
