@@ -11,4 +11,34 @@ package warbrasil.src;
  */
 public class Exercito {
     
+    private int QTD;
+    private String COR;
+    
+    
+    public Exercito(int qtd, String cor) {
+        this.QTD = qtd;
+        this.COR = cor;
+    }
+    
+    @Override
+    public String toString() {
+        return this.COR + "-" + this.QTD; 
+    }
+
+    public int getQTD() {
+        return QTD;
+    }
+
+    public void setQTD(int QTD) {
+        this.QTD = QTD;
+    }
+
+    public String getCOR() {
+        return COR;
+    }
+
+    public void setCOR(String COR) {
+        this.COR = COR;
+    }
+    
 }

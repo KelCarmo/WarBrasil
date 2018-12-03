@@ -19,7 +19,46 @@ public class Estado {
     private String regiao;
     
     public Estado(String name, String regiao) {
+        this.vizinhos = new ArrayList<>();
         this.name = name;
+        this.regiao = regiao;
+    }
+    
+    public boolean addVizinho(Estado vizinho) {
+        return this.vizinhos.add(vizinho);
+    }
+    
+    public void setExercito(Exercito e) {
+        this.exercito = e;
+    }
+    
+    public Exercito getExercito() {
+        return this.exercito;
+    }
+    
+    
+    @Override
+    public String toString() {
+        return this.name + "(" + this.exercito + ")" + ", ";
+    }
+
+    public ArrayList<Estado> getVizinhos() {
+        return vizinhos;
+    }   
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getRegiao() {
+        return regiao;
+    }
+
+    public void setRegiao(String regiao) {
         this.regiao = regiao;
     }
     

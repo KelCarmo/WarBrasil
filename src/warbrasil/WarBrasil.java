@@ -5,6 +5,8 @@
  */
 package warbrasil;
 
+import warbrasil.src.MapaClassico;
+
 /**
  *
  * @author kelvin
@@ -16,6 +18,9 @@ public class WarBrasil {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        MapaClassico novo = new MapaClassico();
+        novo.sortExercitos(2);
+        System.out.println(novo);
     }
     
 }
