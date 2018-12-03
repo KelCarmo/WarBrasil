@@ -7,7 +7,7 @@ package warbrasil.src;
 
 /**
  *
- * @author kelvin
+ * @author kelvin e Rejanio
  */
 public class Exercito {
     
@@ -39,6 +39,14 @@ public class Exercito {
 
     public void setCOR(String COR) {
         this.COR = COR;
+    }
+    /**
+     * Método que recebe o nova quantidade de exercito e soma com a atual
+     * e atualiza. 
+     * @param qtd quantidade de exercíto
+     */
+    public void atualiza_qtd_Exercito(int qtd){
+        this.setQTD(this.getQTD()+qtd);
     }
     
 }

@@ -26,5 +26,17 @@ public class Jogador {
     public void jogar() {
         
     }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getColor() {
+        return color;
+    }
+
+    public int getQtd_carta_estado() {
+        return qtd_carta_estado;
+    }
     
 }

@@ -234,6 +234,15 @@ public class MapaClassico extends Mapa {
         this.estados.add(GO);
     }
     
+    public Estado retorna_estado(String nome){
+        for(int i =0; i<this.estados.size();i++){
+            if(this.estados.get(i).getName().equals(nome)){
+                return this.estados.get(i);
+            
+            }
+        }
+        return null;
+    }
     private TreeSet<Integer> sortNumCores(int qtdPlayers) {
         TreeSet<Integer> numeros = new TreeSet<>();
         Random rand = new Random();
