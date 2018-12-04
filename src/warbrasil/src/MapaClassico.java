@@ -318,7 +318,24 @@ public class MapaClassico extends Mapa {
         }
         return temp;
     }      
+
+    public ArrayList<Jogador> getPlayers() {
+        return players;
+    }
     
-    
+    /**
+     * Método que verifica se existe o atual jogador já conquistou todos os territórios.
+     * @param j jogador 
+     * @return retorna verdadeiro caso o jogador já tenha conquistado todos os estados
+     */
+    public boolean tem_vencedor(Jogador j){
+        
+        for(int i = 0; i < this.estados.size() ; i++){
+            if(!(j.getColor().equals(this.estados.get(i).getExercito().getCOR()))){
+                return false;
+            }
+        }
+        return true;
+    }
     
 }
