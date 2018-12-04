@@ -211,6 +211,15 @@ public class MapaClassico extends Mapa {
         RJ.addVizinho(ES);
         this.estados.add(RJ);
         
+        
+        // GOIAS
+        GO.addVizinho(PA);
+        GO.addVizinho(MT);
+        GO.addVizinho(MG);
+        GO.addVizinho(BA);
+        GO.addVizinho(MA);
+        this.estados.add(GO);
+        
         // MATO GROSSO
         MT.addVizinho(RO);
         MT.addVizinho(PA);
@@ -220,13 +229,7 @@ public class MapaClassico extends Mapa {
         MT.addVizinho(PR);
         this.estados.add(MT);
         
-        // GOIAS
-        GO.addVizinho(PA);
-        GO.addVizinho(MT);
-        GO.addVizinho(MG);
-        GO.addVizinho(BA);
-        GO.addVizinho(MA);
-        this.estados.add(GO);
+        
     }
     
     public Estado retorna_estado(String nome){
@@ -271,33 +274,51 @@ public class MapaClassico extends Mapa {
             Exercito n = new Exercito(1,this.cores[numeros.pollFirst()]);
             exercitos.add(n);
         }
-        System.out.println(exercitos);
         for(Exercito temp: exercitos) {
-            Jogador n = new Jogador("Jogador ", temp.getCOR(), this.estados.size()/qtdPlayers,1);
+            Jogador n = new Jogador("Jogador ", temp.getCOR(), 0,1);
             this.players.add(n);
         }
         
             if (qtdPlayers > 6 || qtdPlayers == 1){
             //Execeção
         }else {
-            
             // distribui os Países de Forma aleatória de acordo com a quantidade de jogadores escolhida.
             TreeSet<Integer> nums = sortNum(this.estados.size());
             int x = this.estados.size()/qtdPlayers;
             int y =this.estados.size()%qtdPlayers;
-            System.err.println(y);
             for (int j = 0; j< x+y; j++) {
                 TreeSet<Integer> players = sortNum(qtdPlayers);
                 for(int i = 0; i<qtdPlayers; i++) {
-                    if(!nums.isEmpty()) this.estados.get(nums.pollFirst()).setExercito(exercitos.get(players.pollFirst()));
+                    if(!nums.isEmpty()) {
+                        Estado temp = this.estados.get(nums.pollFirst());
+                        Exercito ec = exercitos.get(players.pollFirst());
+                        temp.setExercito(ec);
+                    if(this.getJogador(ec.getCOR()) != null) this.getJogador(ec.getCOR()).addQtdEstado(1);
+                    }
                 }
             }
+//                TreeSet<Integer> players = sortNum(qtdPlayers);
+//            
+//            for(int i =0; i< y;i++) {
+//                Exercito exercito = exercitos.get(players.pollFirst());
+//                Estado estado = this.estados.get(nums.pollFirst());
+//                if(!nums.isEmpty()){
+//                    estado.setExercito(exercito);
+//                }
+//                
+//            }
         
             
         }
-        
-        
-        
+    }
+    
+    private Jogador getJogador(String cor) {
+        for(Jogador temp: this.players) {
+            if(temp.getColor().equals(cor)) {
+                return temp;
+            }
+        }
+        return null;
     }
     
     @Override

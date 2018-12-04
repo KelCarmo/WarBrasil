@@ -26,6 +26,10 @@ public class Jogador {
     public void jogar() {
         
     }
+    
+    public void addQtdEstado(int qtd) {
+        this.qtd_estados = this.qtd_estados + qtd;
+    }
 
     public String getName() {
         return name;
@@ -37,6 +41,11 @@ public class Jogador {
 
     public int getQtd_carta_estado() {
         return qtd_carta_estado;
+    }
+    
+    @Override
+    public String toString() {
+        return this.name + " " + this.color + "| qtdEstado: " + this.qtd_estados + "\n";
     }
     
 }
